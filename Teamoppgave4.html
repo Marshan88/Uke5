@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordchooser</title>
+    
+    <style>
+        ellipse{
+    fill:transparent; 
+    stroke:black;
+    stroke-width:5;
+}
+
+body {
+    background-image: url('https://img.gfx.no/1675/1675918/1200024500.jpg');
+    /*background-repeat: no-repeat;*/
+    background-attachment: fixed;
+    background-size: cover;
+    margin: auto;
+    width : 50%;
+    height: 100%;
+    text-align : center;
+}
+
+text {
+    font-size: x-large;
+    font-style: bold;
+}
+    </style>
+    
+</head>
+<body>
+    <h1>Wordchooser</h1>
+    <hr>
+    <br>
+    <div id="app"></div>
+    
+
+
+      <script>
+          //model
+          var kjønn = "___";
+          var jobb = "___";
+          var humor = "___";
+
+          
+          //view
+          updateView();
+          function updateView() {
+              document.getElementById('app').innerHTML = `
+              <h1>Det var en gang en ${kjønn} som hadde jobb som ${jobb} og var alltid ${humor} </h1>
+              <svg id="svgSirkel" height="500" width="500">
+            <ellipse onclick="sendkjonn1(this)" id="ord1ellipse" class="ordene" cx="100" cy="80" rx="50" ry="25"/> <text onclick="sendkjonn1(this)" x="71" y="85" fill="black">Mann</text>
+            <ellipse onclick="sendkjonn2(this)" id="ord2ellipse" class="ordene" cx="100" cy="160" rx="50" ry="25" /> <text onclick="sendkjonn2(this)" x="71" y="165" fill="black">Dame</text>
+            <ellipse onclick="sendJobb1(this)" id="ord3ellipse" class="ordene" cx="100" cy="240" rx="50" ry="25"/> <text onclick="sendJobb1(this)" x="71" y="245" fill="black">lærer</text>
+            <ellipse onclick="sendJobb2(this)" id="ord4ellipse" class="ordene" cx="250" cy="80" rx="50" ry="25" /> <text onclick="sendJobb2(this)" x="211" y="86" fill="black">snekker</text>
+            <ellipse onclick="sendHumor1(this)" id="ord5ellipse" class="ordene" cx="250" cy="160" rx="50" ry="25" /> <text onclick="sendHumor1(this)" x="228" y="165" fill="black">glad</text>
+            <ellipse onclick="sendHumor2(this)" id="ord6ellipse" class="ordene" cx="250" cy="240" rx="50" ry="25" /> <text onclick="sendHumor2(this)" x="235" y="245" fill="black">sur</text>
+            </svg>
+              `;
+            }
+
+            //controller
+            function sendkjonn1(sendOrd) {
+                kjønn = "mann";
+                updateView();
+            }
+
+            function sendkjonn2(sendOrd) {
+                kjønn = "dame";
+                updateView();
+            }
+
+            function sendJobb1(sendOrd) {
+                jobb = "lærer";
+                updateView();
+            }
+
+            function sendJobb2(sendOrd) {
+                jobb = "snekker";
+                updateView();
+            }
+            function sendHumor1(sendOrd) {
+                humor = "glad";
+                updateView();
+            }
+            function sendHumor2(sendOrd) {
+                humor = "sur";
+                updateView();
+            }
+      </script>
+</body>
+</html>
